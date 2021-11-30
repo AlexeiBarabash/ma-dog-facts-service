@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def get_fact():
-  url = requests.get("http://dog-facts-source.default.svc.cluster.local:5000/api/v1/resources/dogs/all")
+  url = requests.get("http://ma-dog-sources-service-ma-services.default.svc.cluster.local:5000/api/v1/resources/dogs/all")
   fact = random.choice(json.loads(url.text))
   return fact["fact"]
 
