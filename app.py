@@ -1,11 +1,11 @@
 from flask import Flask
-import requests , json, random, os
+import requests , json, random
 
 app = Flask(__name__)
 
 @app.route("/")
 def get_fact():
-  url = requests.get(s.environ.get('DATA_URL'))
+  url = requests.get("http://dog-facts-source.default.svc.cluster.local:5000/api/v1/resources/dogs/all")
   fact = random.choice(json.loads(url.text))
   return fact["fact"]
 
